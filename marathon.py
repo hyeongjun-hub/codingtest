@@ -17,3 +17,4 @@ def solution(participant, completion):
     z = [k for k, v in d.items() if v > 0]
     answer = z[0]
     return answer
+
