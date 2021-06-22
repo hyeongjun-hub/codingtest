@@ -8,13 +8,25 @@
 # 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
 # 참가자 중에는 동명이인이 있을 수 있습니다.
 
+# def solution(participant, completion):
+#     d = {}
+#     for x in participant:
+#         d[x] = d.get(x, 0) + 1
+#     for x in completion:
+#         d[x] -= 1
+#     z = [k for k, v in d.items() if v > 0]
+#     answer = z[0]
+#     return answer
+
 def solution(participant, completion):
-    d = {}
-    for x in participant:
-        d[x] = d.get(x, 0) + 1
-    for x in completion:
-        d[x] -= 1
-    z = [k for k, v in d.items() if v > 0]
-    answer = z[0]
-    return answer
+    marathon = {}
+    for person in participant:
+        marathon[person] += 1
+    for person in completion:
+        marathon[person] -= 1
+    for keys in marathon:
+        if keys == 1:
+            return keys
+
+
 
