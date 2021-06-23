@@ -2,16 +2,19 @@
 # profits에는 며칠 동안의 수익이 담겨 있습니다.
 # 예를 들어서 profits가 [7, -3, 4, -8]이라면 첫 날에는 7달러를 벌었고,
 # 둘째 날에는 3달러를 잃었고, 셋째 날에는 4달러를 벌었고, 마지막 날에는 8달러를 잃은 거죠.
-# sublist_max 함수는 profits에서 최대 수익을 내는 구간의 수익을 리턴합니다.
+# sublist_max 함수는 profits에서 `${최대 수익을 내는 구간의 수익}`을 리턴합니다.
 
 def sublist_max(profits):
     temp = list()
     maxi = 0
+
     for i in range(len(profits)):
+        # j는 i 바로 뒤부터 시작
         for j in range(i+1):
             if i == 0:
                 temp = profits[j:]
             else:
+                # i는 뒤에서 부터 시작하도록 '-'취함
                 temp = profits[j:-i]
             if maxi < sum(temp):
                 maxi = sum(temp)

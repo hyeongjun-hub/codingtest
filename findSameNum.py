@@ -1,16 +1,11 @@
 def find_same_number(some_list):
-    # 코드를 쓰세요
-    result = [0 for i in range(len(some_list))]
-    # print(result)
+    result = [0] * len(some_list)
     for i in range(len(some_list)):
         result[some_list[i]] += 1
         if result[some_list[i]] >= 2:
             return some_list[i]
 
-#
 # def find_same_number(some_list):
-#     # 필요한 경우, start와 end를 옵셔널 파라미터로 만들어도 됩니다.
-#     # 코드를 쓰세요
 #     temp_list = list();
 #     for value in some_list[:-1]:
 #         if value in temp_list:
@@ -45,6 +40,14 @@ def find_same_number(some_list):
 #         return find_same_number(some_list, start, mid)
 #
 #     return find_same_number(some_list, mid + 1, end)
+
+# dictionary 이용
+# def find_same_number(some_list):
+#     dic = {}
+#     for item in some_list:
+#         if item in dic:
+#             return item
+#         dic[item] = 1
 
 
 # 중복되는 수 ‘하나’만 리턴합니다.

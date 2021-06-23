@@ -21,12 +21,12 @@
 def solution(participant, completion):
     marathon = {}
     for person in participant:
-        marathon[person] += 1
+        marathon[person] = marathon.get(person, 0) + 1
     for person in completion:
         marathon[person] -= 1
-    for keys in marathon:
-        if keys == 1:
-            return keys
+    for key, value in marathon.items:
+        if value >= 1:
+            return key
 
 
 
