@@ -9,9 +9,22 @@
 #     else:
 #         print(list(num_dic.values()))
 
-def fuc(arr):
-    print(arr.split())
+# def fuc(arr):
+#     print(arr.split())
 
 
-fuc("12345")
+
+# fuc("12345")
+#
+# from collections import Counter
+#
+# c = Counter('abacdfdf')
+# d = sorted(c.elements())
+# print(d)
+# print(c)
+
+data = enumerate([1, 2, 3])
+number = [1,2,3]
+
+print(list(map(lambda x: x*2 if x > 2 else 0, number)))
 
