@@ -19,14 +19,33 @@ from collections import Counter
 import re
 
 def solution(genres, plays):
-    genreList = list(Counter(genres).keys())
-    sumSong = {} * len(genreList)
-    gp = list(zip(genres, plays))
-    for i in range(len(genres)):
-        if genreList[i] == gp[i][0]:
-            sumSong[i] += gp[i][1]
-
-    return gp
-
+    index = list(enumerate(plays))
+    dic = {}
+    all = list(zip(genres, index))
+    for i in range(len(all)):
+        if all[i][0] in dic.keys():
+            dic[all[i][0]] += [all[i][1]]
+        else:
+            dic[all[i][0]] = [all[i][1]]
+    gen = {}
+    for k, v in dic.items():
+        a = 0
+        for i in v:
+            a += i[1]
+        gen[k] = a
+    sgen = sorted(gen.items(), reverse=True)
+    answer = []
+    for i in range(len(sgen)):
+        maxa = 0
+        max2 = 0
+        for j in range(len(all)):
+            if maxa < all[j][1][1] and all[j][0] == sgen[i][0]:
+                maxa = all[j][1][1]
+        answer.append(maxa)
+        for j in range(len(all)):
+            if max2 < all[j][1][1] and all[j][0] == sgen[i][0] and max2 < max2:
+                max2 = all[j][1][1]
+        answer.append(max2)
+    return answer
 
 print(solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500]))
